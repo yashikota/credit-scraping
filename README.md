@@ -18,8 +18,14 @@ uv run src/main.py {YEAR}
 uv run src/scraping.py {YEAR}
 ```
 
-### Extract
+### Extract Data
 
 ```sh
 uv run src/extract.py {YEAR}
+```
+
+### Convert to JSON
+
+```sh
+uv run src/convert.py {YEAR}
 ```
