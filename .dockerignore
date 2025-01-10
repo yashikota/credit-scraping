@@ -1,0 +1,8 @@
+.venv/
+.ruff_cache/
+.github/
+data/
+.gitignore
+.dockerignore
+*.md
+LICENSE

@@ -27,7 +27,7 @@ jobs:
         run: echo "YEAR=${{ github.event.inputs.year }}" >> $GITHUB_ENV
 
       - name: run
-        run: uv run src/main.py --year ${{ env.YEAR }}
+        run: YEAR=${{ env.YEAR }} docker compose up
 
       - name: upload artifact
         uses: actions/upload-pages-artifact@v3
