@@ -8,7 +8,7 @@ import pypdfium2 as pdfium
 
 
 def extract(year: int):
-    pdf_files = glob.glob(f"{os.path.join("data", str(year))}/*.pdf")
+    pdf_files = glob.glob(f"{os.path.join('data', str(year))}/*.pdf")
     for pdf in pdf_files:
         p = pdfium.PdfDocument(pdf)
         pdf_pages = len(p)
@@ -33,6 +33,9 @@ def extract(year: int):
 
 
 if __name__ == "__main__":
-    import sys
-
-    extract(int(sys.argv[1]))
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "-y", "--year", type=int, help="The year to scrape", required=True
+    )
+    extract(parser.parse_args().year)

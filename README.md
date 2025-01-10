@@ -9,23 +9,23 @@ uv sync
 ## Run
 
 ```sh
-uv run src/main.py {YEAR}
+uv run src/main.py --year {YEAR}
 ```
 
 ### Get PDF
 
 ```sh
-uv run src/scraping.py {YEAR}
+uv run src/scraping.py --year {YEAR}
 ```
 
 ### Extract Data
 
 ```sh
-uv run src/extract.py {YEAR}
+uv run src/extract.py --year {YEAR}
 ```
 
 ### Convert to JSON
 
 ```sh
-uv run src/convert.py {YEAR}
+uv run src/convert.py --year {YEAR}
 ```

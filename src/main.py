@@ -1,12 +1,11 @@
-import sys
+import argparse
 
 from convert import convert
 from extract import extract
 from scraping import scraping
 
 
-def main():
-    year = int(sys.argv[1])
+def main(year: int):
     if year <= 2019:
         print("Cannot get data before 2019")
         return
@@ -17,4 +16,8 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "-y", "--year", type=int, help="The year to scrape", required=True
+    )
+    main(parser.parse_args().year)

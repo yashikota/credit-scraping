@@ -72,7 +72,7 @@ def convert(year: int):
                     }
                 )
 
-    with open(f"{path}/{year}.json", "w") as f:
+    with open(f"data/{year}.json", "w") as f:
         json.dump(result, f, ensure_ascii=False, indent=4)
 
 

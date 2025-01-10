@@ -36,15 +36,22 @@ def scraping(year: int):
         if link["href"].startswith("pdf/"):
             pdf_link = link["href"]
             term = "前期" if pdf_link.split("/")[-2] == "zenki" else "後期"
-            faculty = unicodedata.normalize("NFKC", link.find_previous("th").get_text(strip=True))
+            faculty = unicodedata.normalize(
+                "NFKC", link.find_previous("th").get_text(strip=True)
+            )
             department = unicodedata.normalize("NFKC", link.get_text(strip=True))
-            filename = os.path.join("data", str(year), f"{term}-{faculty}-{department}.pdf")
+            filename = os.path.join(
+                "data", str(year), f"{term}-{faculty}-{department}.pdf"
+            )
             path = pdf_url + pdf_link
             print(f"Downloading {path} as {filename}")
             get_pdf(path, filename)
 
 
 if __name__ == "__main__":
-    import sys
-
-    scraping(int(sys.argv[1]))
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "-y", "--year", type=int, help="The year to scrape", required=True
+    )
+    scraping(parser.parse_args().year)
